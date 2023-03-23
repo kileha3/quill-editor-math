@@ -73,9 +73,9 @@ const QuillEditor = (props: IEditor) => {
     }
   }, [props.initialValue])
 
-  const handleChange = (value: string) => {
+  const handleChange = (value: string, _delta: any, source: any, editor: any) => {
     setEditorHtml(value)
-    props.onChange && props.onChange(value)
+    props.onChange && props.onChange(value, editor.getContents(), source, editor)
   }
 
   return (
